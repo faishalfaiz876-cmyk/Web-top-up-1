@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Up Game - Pembayaran</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #020617;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #020617;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  color: #22c55e;
+}
+
+.container {
+  padding: 25px;
+}
+
+.card {
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  color: #22c55e;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  background: #22c55e;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.qris {
+  text-align: center;
+}
+
+.qris img {
+  width: 220px;
+  margin-top: 15px;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  opacity: .6;
+  padding: 15px;
+}
+
+/* WA Floating */
+.wa {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: #000;
+  padding: 14px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>TOP UP GAME</h1>
+  <p>Pembayaran Otomatis & Aman</p>
+</header>
+
+<div class="container">
+
+  <!-- PILIH GAME -->
+  <div class="card">
+    <h2>Data Top Up</h2>
+    <select id="game">
+      <option>Mobile Legends</option>
+      <option>Free Fire</option>
+      <option>PUBG Mobile</option>
+      <option>Genshin Impact</option>
+    </select>
+
+    <input type="text" id="userid" placeholder="User ID / Server">
+    <input type="number" id="nominal" placeholder="Nominal Top Up (Rp)">
+  </div>
+
+  <!-- PEMBAYARAN -->
+  <div class="card">
+    <h2>Pembayaran E-Wallet</h2>
+    <p><b>DANA / GoPay</b></p>
+    <p>Nomor: <b>088983230160</b></p>
+  </div>
+
+  <!-- QRIS -->
+  <div class="card qris">
+    <h2>QRIS Otomatis</h2>
+    <p>Scan QR di bawah untuk pembayaran</p>
+
+    <!-- GANTI GAMBAR QRIS KAMU -->
+    <img src="https://i.ibb.co/7jL9ZxT/qris-example.png" alt="QRIS">
+
+    <p style="font-size:12px;opacity:.7;">
+      *Gunakan QRIS milik kamu sendiri
+    </p>
+  </div>
+
+  <!-- UPLOAD BUKTI -->
+  <div class="card">
+    <h2>Upload Bukti Transfer</h2>
+    <input type="file" id="bukti" accept="image/*">
+
+    <button onclick="kirimWA()">Kirim Konfirmasi ke CS</button>
+  </div>
+
+</div>
+
+<a class="wa" href="https://wa.me/628132182371" target="_blank">
+  💬 WhatsApp CS
+</a>
+
+<footer>
+  © 2026 Top Up Game | Pembayaran QRIS & E-Wallet
+</footer>
+
+<script>
+function kirimWA() {
+  let game = document.getElementById("game").value;
+  let userid = document.getElementById("userid").value;
+  let nominal = document.getElementById("nominal").value;
+
+  let text =
+    "Halo CS,%0A" +
+    "Saya sudah melakukan pembayaran top up.%0A%0A" +
+    "Game: " + game + "%0A" +
+    "User ID: " + userid + "%0A" +
+    "Nominal: Rp" + nominal + "%0A%0A" +
+    "Bukti transfer saya lampirkan.";
+
+  window.open(
+    "https://wa.me/628132182371?text=" + text,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
